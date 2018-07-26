@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+	* {
+		margin-left: 1px;
+		padding: 0;
+	}
+html,body{
+width: 100%;
+height: 100%;
+}
+
+
+	#ztemplate1
+	{
+	border:none;
+	width:100%;
+	height:100%;		
+		}
+ .beadasim {
+	margin:0px;
+	width:100%;
+	height:100%;	
+	background:url("T1NWDfXjldXXa_gJAe-950-250.png");
+	background-size:100% 100%;
+}
+
+ #pansmall2 {
+float:left;
+}
+
+ #panmiddle3 {
+float:left;
+}
+
+ #panmiddle4 {
+float:right;
+	height:100px;
+	width:100px;
+}
+
+ #panlarge6 {
+float:left;
+	background-color:rgba(0,0,0,0);
+}
+
+ #pannarrow7 {
+float:right;
+
+	height:37vh;
+	width:37vh;
+	background-color:rgba(0,0,0,0);
+}
+
+ #panmiddle8 {
+float:right;
+
+	height:37vh;
+	width:37vh;
+	background-color:rgba(0,0,0,0);
+}
+
+ #panmiddle9 {
+float:right;
+	height:37vh;
+	width:37vh;
+	background-color:rgba(0,0,0,0);
+}
+
+ #pansmall10 {
+float:right;
+	height:37vh;
+	width:37vh;
+	background-color:rgba(0,0,0,0);
+}
+ #pansmall11 {
+float:right;
+	height:37vh;
+	width:37vh;
+	background-color:rgba(0,0,0,0);
+}
+
+ #pm1-0 {
+	border:none;
+	width:100%;
+	height:100%;
+}
+
+ #pm2-5 {
+	border:none;
+	width:100%;
+	height:100%;
+}
+
+ #pm10 {
+	border:none;
+	width:100%;
+	height:100%;
+}
+ #powerbtn {
+	border:none;
+	width:100%;
+	height:100%;
+}
+
+ #menubtn {
+	border:none;
+	width:100%;
+	height:100%;
+}
+#temp {
+	border:none;
+	width:100%;
+	height:100%;	
+}
+#date-time {
+	border:none;
+	width:100%;
+	height:100%;	
+}
+#humin {
+	border:none;
+	width:100%;
+	height:100%;	
+}
+ #co2 {
+	border:none;
+	width:100%;
+	height:100%;
+}
+ #hcho {
+	border:none;
+	width:100%;
+	height:100%;
+}
+
+ .menubtn {
+	border:none;
+	width:100%;
+	height:100%;
+	background:url("menu2.png");
+	background-position:center;
+		background-size:80%;
+	background-repeat:no-repeat;
+}
+
+.dtmid {
+float:left;	
+}
+.dtmid div.date {
+		text-align: left; color: white;font-family: 'Times','serif'; font-weight:bold; font-size:6vh;
+	}
+	
+.dtmid div.time {
+position: relative;
+		text-align: center; color: white;font-family:'serif'; font-weight:bold; font-size:19vh;
+	} 
+	
+.tempmid div.para_img {
+float:left;
+
+}
+.tempmid div.para_img img {
+	height:51px;
+	width:51px;
+
+}
+
+.tempmid div.para_data {
+float:left;
+left:100px; 
+bottom:10px; 
+color: black;font-family: 'LCD Mono','serif'; font-weight:bold; font-size:52pt;
+}
+.tempmid div.para_unit {
+	float:left;
+	top:30px;
+	left:400px;
+color: #FF8000;font-family: 'Times','serif'; font-weight:bold; font-size:25pt; vertical-align:bottom;
+}
+.humsmall div.para_img {
+float:left;
+}
+.humsmall div.para_img img {
+	height:51px;
+	width:51px;
+
+}
+
+.humsmall div.para_data {
+	float:left;
+		 color: black;font-family: 'LCD Mono','serif'; font-weight:bold; font-size:52pt;
+}
+.humsmall div.para_unit {
+	float:left;
+	top:30px;
+	left:150px;
+		 color:#0072E3;font-family: 'Times','serif'; font-weight:bold; font-size:25pt;vertical-align: text-bottom; 
+}
+
+.pmnarrow div.para_data {
+	position:absolute;
+left:0px; 
+bottom:60px; 	
+		vertical-align:middle; text-align: center; color: white;font-family: 'Bauer','serif'; font-weight:bold; font-size:53.5pt;
+}
+
+.pmnarrow div.para_unit {
+		position:absolute;
+left:20px; 
+bottom:10px; 
+		text-align: center; color: black;font-family: 'Times','serif'; font-weight:bold; font-size:20pt;
+}
+
+.pmlarge div.para_name {
+		text-align: left; color: black;font-family: 'Times','serif'; font-weight:bold; font-size:20pt;
+}
+
+.pmlarge div.para_data {
+	position:absolute;
+left:70px; 
+bottom:-20px; 
+		text-align: center; color: white;font-family: 'Bauer','serif'; font-weight:bold; font-size:150pt;
+}
+
+.pmlarge div.para_unit {
+	position:absolute;
+left:420px; 
+bottom:10px; 
+}
+
+
+</style>	
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+		var t = setInterval(tupdate, 1000);
+
+            var pm25Chart = echarts.init(document.getElementById('pm2-5'));
+            var pm25option = {
+            title: {
+                text: 'PM2.5', //
+                x: 'center',
+            },
+            grid:{
+                x:20,
+                y:30,
+                x2:20,
+                y2:10,
+            },
+            series: [{
+            name: 'PM2.5',
+            type: 'gauge',
+            min: 0,
+            max: 400,  
+            splitNumber: 8,
+            axisLine: {
+                lineStyle: {
+                    color:[
+                        [12/400, '#006000'],
+                        [35.4/400, '#FFDC35'],
+                        [55.4/400, '#FF8000'],
+                        [150.4/400, '#EA0000'],
+                        [250.4/400, '#460046'],
+                        [400/400, '#750000']
+                     
+                    ],
+                    width:3,
+                }
+            },
+            axisLabel: {
+            	show:false,
+            },
+
+                detail: {formatter:'{value}',
+                offsetCenter:[0,'60%'],
+                	},
+                data: [{value: 45.1, name: 'ug/m3'}]
+            }]
+
+            };
+
+
+            var pm10Chart = echarts.init(document.getElementById('pm10'));
+
+            // 
+            var pm10option = {
+            title: {
+                text: 'PM10', //
+                x: 'center',                
+            },
+
+            series: [{
+            name: 'PM10',
+            type: 'gauge',
+            min: 0,
+            max: 600,  
+            splitNumber: 6,
+            axisLine: { 
+                lineStyle: {
+                    color:[
+                        [54/600, '#006000'],
+                        [154/600, '#FFDC35'],
+                        [254/600, '#FF8000'],
+                        [354/600, '#EA0000'],
+                        [424/600, '#460046'],
+                        [600/600, '#750000']
+                     
+                    ],
+                    width:3,
+                }
+            },
+            axisLabel: {
+            	show:false,
+            },
+
+                detail: {formatter:'{value}',
+                offsetCenter:[0,'60%'],
+                	},
+                data: [{value: 45.1, name: 'ug/m3'}]
+            }]
+
+            };
+
+
+            var pm1Chart = echarts.init(document.getElementById('pm1-0'));
+
+            // 
+            var pm1option = {
+            title: {
+                text: 'PM1.0', //
+                x: 'center',
+            },
+
+            series: [{
+            name: 'PM1.0',
+            type: 'gauge',
+            min: 0,
+            max: 400,  
+            splitNumber: 8,
+            axisLine: { //
+                lineStyle: { //
+                    color:[
+                        [12/400, '#006000'],
+                        [35.4/400, '#FFDC35'],
+                        [55.4/400, '#FF8000'],
+                        [150.4/400, '#EA0000'],
+                        [250.4/400, '#460046'],
+                        [400/400, '#750000']
+                     
+                    ],
+                    width:3,
+                }
+            },
+            axisLabel: {
+            	show:false,
+            },
+
+                detail: {formatter:'{value}',
+                offsetCenter:[0,'60%'],
+                	},
+                data: [{value: 45.1, name: 'ug/m3'}]
+            }]
+
+            };
+
+
+            var hchoChart = echarts.init(document.getElementById('hcho'));
+
+            // 
+            var hchooption = {
+            title: {
+                text: 'HCHO', //
+                x: 'center',
+       
+            },
+            grid:{
+                x:20,
+                y:30,
+                x2:20,
+                y2:10,
+            },
+            series: [{
+            name: 'HCHO',
+            type: 'gauge',
+            min: 0,
+            max: 0.4,  
+            splitNumber: 4,
+            axisLine: { //
+                lineStyle: { //
+                    color:[
+                        [0.08/0.4, '#006000'],
+                        [0.1/0.4, '#FFDC35'],
+                        [0.2/0.4, '#FF8000'],
+                        [0.4/0.4, '#EA0000']
+                     
+                    ],
+                    width:3,
+                }
+            },
+            axisLabel: {
+            	show:false,
+            },
+
+                detail: {formatter:'{value}',
+                offsetCenter:[0,'60%'],
+                	},
+                data: [{value: 0.01, name: 'mg/m3'}]
+            }]
+
+            };
+
+            
+            var co2Chart = echarts.init(document.getElementById('co2'));
+
+            // 
+            var co2option = {
+            title: {
+                text: 'CO2', //
+                x: 'center',
+                   },
+ 
+            series: [{
+            name: 'CO2',
+            type: 'gauge',
+            min: 0,
+            max: 7000,  
+            splitNumber: 7,
+            axisLine: { //
+                lineStyle: { //
+                    color:[
+                        [450/7000, '#006000'],
+                        [1000/7000, '#FFDC35'],
+                        [2000/7000, '#FF8000'],
+                        [5000/7000, '#EA0000'],
+                        [7000/7000, '#460046']
+                     
+                    ],
+                    width:3,
+                }
+            },
+            axisLabel: {
+            	show:false,
+            },
+
+                detail: {formatter:'{value}',
+                offsetCenter:[0,'60%'],
+                	},
+                data: [{value: 400, name: 'PPM'}],
+            }]
+
+            };
+
+    function pm1update(data) {
+        if (pm1option.series[0].data[0]['value'] != data) {
+            pm1option.series[0].data[0]['value'] = data;
+            pm1Chart.setOption(pm1option);
+        }
+    }
+
+    function pm10update(data) {
+        if (pm10option.series[0].data[0]['value'] != data) {
+        pm10option.series[0].data[0]['value'] = data;
+        pm10Chart.setOption(pm10option);
+      }
+    }
+    
+    function pm25update(data) {
+        if (pm25option.series[0].data[0]['value'] != data) {
+        pm25option.series[0].data[0]['value'] = data;
+        pm25Chart.setOption(pm25option);
+      }
+    }
+
+    function co2update(data) {
+        if (co2option.series[0].data[0]['value'] != data) {
+        co2option.series[0].data[0]['value'] = data;
+        co2Chart.setOption(co2option);
+      }
+    	}
+
+    function hchoupdate(data) {
+        if (hchooption.series[0].data[0]['value'] != data/1000) {
+        hchooption.series[0].data[0]['value'] = data/1000;
+        hchoChart.setOption(hchooption);
+      }
+    	}
+
+    function humiupdate(data) {
+        $("#humin div.para_data").text(String(Math.round(data/10)));
+    	}
+
+    function tempupdate(data) {
+        $("#temp div.para_data").text(String(Math.round(data/10)));
+    }
+                                                            
+    function tupdate() {
+    var d=new Date();
+    var hours=d.getHours();
+    var minutes=d.getMinutes();	
+    var seconds=d.getSeconds();
+    $("#date-time div.date").text(d.toDateString());
+    $("#date-time div.time").text(((hours  <  10)  ?  "0"  :  "")+hours+":"+((minutes  <  10)  ?  "0"  :  "")+minutes+":"+((seconds  <  10)  ?  "0"  :  "")+seconds);
+
+    $.getJSON("/air-quality-get", function(data) {
+        for (var key in data) {
+            if (key == 'co2Data')
+                co2update(data['co2Data']);
+            else if (key == 'hchoData')
+                hchoupdate(data['hchoData']);
+            else if (key == 'tempData')
+                tempupdate(data['tempData']);
+            else if (key == 'humiData')
+                humiupdate(data['humiData']);
+            else if (key == 'pm1Data')
+                pm1update(data['pm1Data']);
+            else if (key == 'pm10Data')
+                pm10update(data['pm10Data']);
+            else if (key == 'pm25Data')
+                pm25update(data['pm25Data']);               
+        }
+ 
+    });
+
+}
+
+});
+</script>
+</head>
+
+<body>	
+<div id="ztemplate1">
+		<div class="beadasim">
+
+			<div id ="pansmall2"> 
+				<div id="humin" class="humsmall">
+					<div class="para_img"><img src="water-drop.png"/></div>
+					<div class="para_data">70</div>
+					<div class="para_unit">%</div>
+				</div>
+</div>
+			<div id = "panmiddle3">
+				<div id="temp" class="tempmid">
+					<div class="para_img" ><img src="weatherglass03.png"/></div>
+					<div class="para_data">23</div>
+					<div class="para_unit">&#176C</div>
+				</div>
+			</div>
+			
+			<div id = "panmiddle4">
+<div id = "menubtn" class="dropdown">
+    <button type="button" class="btn dropdown-toggle menubtn" id="dropdownMenu1" data-toggle="dropdown">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="history.html">History Chart</a>
+        </li>
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Settings</a>
+        </li>
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#mymodal" data-toggle="modal" data-target="#myModal" onclick="javascript:test();">About</a>
+        </li>
+    </ul>
+</div>
+</div>
+
+			<div id = "panlarge6">
+				<div id="date-time" class="dtmid">
+			<div class="date">2018-03-30</div>
+			<div class="time">16:55:50</div>		
+			</div>
+			</div>
+			<div id = "pannarrow7">
+				<div id="hcho" class="pmnarrow">
+			</div>
+			</div>
+			<div id = "panmiddle8">
+				<div id="co2" >
+
+</div>
+			</div>
+			<div id = "panmiddle9">
+				<div id="pm10" >
+
+</div>
+			</div>
+			<div id ="pansmall10"> 
+<div id="pm2-5">
+</div>
+			</div>
+			<div id ="pansmall11">
+				<div id="pm1-0"> 
+</div>
+			</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">AirSniffer v1.0 </h4>
+            </div>
+            <div class="modal-body">An Innovation from Naxing Electronics</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>									
+		</div>
+</div>
+</body>
+
+</html>

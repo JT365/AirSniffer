@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+	* {
+		margin-left: 1px;
+		padding: 0;
+	}
+
+	
+ .beadasim {
+	margin:0px;
+	height:100%;
+	width:100%;
+}
+
+
+ #panmiddle4 {
+float:right;
+
+	height:100px;
+	width:100px;
+	background-color:rgba(0,0,0,0);
+}
+
+ #panlarge6 {
+position:absolute;
+top:0;
+left:0;
+	height:100%;
+	width:100%;
+	background-color:rgba(0,0,0,0);
+
+}
+
+ #chart {
+	border:none;
+	width:100%;
+	height:100%;
+}
+
+ #menubtn {
+	border:none;
+	width:100%;
+	height:100%;
+}
+
+ .menubtn {
+	border:none;
+	width:100%;
+	height:100%;
+	background:url("menu2.png");
+	background-position:center;
+		background-size:80%;
+	background-repeat:no-repeat;
+}
+
+
+</style>	
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+    var pm25Chart = echarts.init(document.getElementById('chart'));
+    // 
+ 
+    // 
+    var option = {
+        title: {
+                text: 'Air Quality History Chart',
+                y:20,
+                textStyle:{
+                fontSize:30,
+                	
+                }
+            },
+        tooltip: {},
+        legend: {
+                data:['PM1', 'PM2.5', 'PM10', 'Temperature', 'Humidity', 'HCHO', 'CO2'],
+                top:95,
+                left:100,
+            },
+        grid:{
+            x:50,
+            y:130,
+            x2:50,
+            y2:20,
+
+        },
+        toolbox: {
+            show : true,
+            x:520,
+            y:40,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+            xAxis: {
+            	type:'category',
+            },
+            yAxis: [{
+            type:'value',
+            position:'left'},{
+            	type:"value",
+            	position:"right"
+            }],
+
+        series: [{
+                name: 'PM1',
+                type: 'line',
+                yAxisIndex:0,
+         },{                           	
+                name: 'PM2.5',
+                type: 'line',
+                yAxisIndex:0,
+        
+            },
+            {
+                name: 'PM10',
+                type: 'line',
+                yAxisIndex:0,
+            },
+            {
+                name: 'Temperature',
+                type: 'line',
+                yAxisIndex:0,
+            },
+            {
+                name: 'Humidity',
+                type: 'line',
+                yAxisIndex:0,
+            },
+            {
+                name: 'HCHO',
+                type: 'line',
+                yAxisIndex:1,
+            },
+            {
+                name: 'CO2',
+                type: 'line',
+                yAxisIndex:0,                                                                                 	
+            }]
+        };
+
+          
+    $.getJSON("/history-get", function(data) {
+
+        function tsdate(num) {
+            return new Date(num);
+        }
+
+        option.xAxis.data = data[0].map(tsdate);
+        option.series[0].data = data[1];
+        option.series[1].data = data[2];
+        option.series[2].data = data[3];
+        option.series[3].data = data[6];
+        option.series[4].data = data[7];
+        option.series[5].data = data[4];
+        option.series[6].data = data[5];
+
+        // 
+        pm25Chart.setOption(option);
+    });
+});
+</script>
+</head>
+
+<body>	
+<div id="ztemplate1">
+		<div class="beadasim">
+			
+			<div id = "panlarge6">
+				<div id="chart">
+			</div>
+			</div>
+			
+			<div id = "panmiddle4">
+<div id = "menubtn" class="dropdown">
+    <button type="button" class="btn dropdown-toggle menubtn" id="dropdownMenu1" data-toggle="dropdown">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="dashboard.html">Dash Board</a>
+        </li>
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">Settings</a>
+        </li>
+        <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">About</a>
+        </li>
+    </ul>
+</div>
+</div>			
+		</div>
+</div>
+</body>
+
+</html>
