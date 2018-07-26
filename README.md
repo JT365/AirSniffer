@@ -9,5 +9,5 @@ AirSniffer comsists of two parts: Innostick 6 Hardware Platform and AirSniffer S
 
 <img src="https://github.com/JT365/AirSniffer/blob/master/diagram_800.png" width="600"/><br>
 
-Together with those Innostick 6 Hardware platform, low level drivers, Operating System and various Middlewares, AirSniffer is an ideal prototyping platform which fit needs widely for areas like Home Automation, Building Security, HMI, IOT Gateway, Card Reader, Test Instrument, etc. 
+Together with those Innostick 6 Hardware platform, low level drivers, Operating System and various Middlewares, AirSniffer is an ideal prototyping platform which fit needs widely for areas like Home Automation, Building Security, HMI, IOT Gateway, Card Reader, Test Instrument, etc. <br>
 <img src="https://github.com/JT365/AirSniffer/blob/master/aq_800.png" width="600"/><br>
